@@ -58,19 +58,18 @@ const videoRef = document.querySelector(".video");
 function getSubscriptionStatus() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve("VIP");
+      resolve(undefined);
     }, 2000)
   });
 }
 
 function getVideo(subscriptionStatus) {
   return new Promise((resolve, reject) => {
-    if (subscriptionStatus() === "VIP") {
-      resolve("Show Video");
+    if (subscriptionStatus === "VIP") {
+      resolve("show Video");
     }
-
-    if (subscriptionStatus() === "FREE") {
-      resolve("subscribe to watch");
+    if (subscriptionStatus === "FREE") {
+      resolve("show trailer");
     } 
     else{
       reject("no video");
@@ -89,6 +88,8 @@ async function main() {
         videoRef.innerHTML = e;
     }
 }
+
+main();
 
 // Q5 - Get all the posts from a specific user
 
